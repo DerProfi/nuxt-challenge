@@ -1,29 +1,40 @@
 <template>
-<div>
-  <h1>Hello world</h1>
-  <HdButton
-        type="submit"
-        modifier="primary"
-        :isInDarkBackground="false"
-        iconSrc=""
-        :disabled="false"
-      >
-        Search
-      </HdButton>
-</div>
+  <div class="background box">
+    <div class="container box">
+      <h1>Github user fetching</h1>
+      <p data-testid="errorDisplay" v-if="errors.length">
+        {{ errors.join(" ") }}
+      </p>
+      <input-form @submit="search"></input-form>
+    </div>
+  </div>
 </template>
 
 <script>
-import { HdButton } from 'homeday-blocks';
-
+import inputForm from "../components/inputForm.vue";
 export default {
-    components: {
-        HdButton
-    }
-
-}
+  name: "IndexForm",
+  components: {
+    inputForm,
+  },
+  data() {
+    return {
+      username: "",
+      errors: [],
+    };
+  },
+  methods: {
+    search(payload) {
+      this.username = payload;
+      if (this.username) {
+        this.$router.push({
+          name: "Results",
+          params: { username: this.username },
+        });
+      } else {
+        this.errors.push("Please enter a username.");
+      }
+    },
+  },
+};
 </script>
-
-<style>
-
-</style>
