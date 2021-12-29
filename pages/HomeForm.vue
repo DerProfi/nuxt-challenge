@@ -7,16 +7,27 @@
       </p>
       <!-- Submit prevent because the form is not connected, we just need the search method -->
       <!-- <input-form @submit="search"></input-form> -->
+      <HdButton
+        type="submit"
+        modifier="primary"
+        :isInDarkBackground="false"
+        iconSrc=""
+        :disabled="false"
+      >
+        Search
+      </HdButton>
     </div>
   </div>
 </template>
 
 <script>
 // import inputForm from "../components/inputForm.vue";
+import { HdButton } from 'homeday-blocks';
+
 export default {
-  // components: {
-  //   inputForm,
-  // },
+  components: {
+    HdButton,
+  },
   data() {
     return {
       username: "",
