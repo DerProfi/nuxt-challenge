@@ -31,7 +31,7 @@ export default {
           name: "user-resultPage",
         });
       } else {
-        this.errors.push("Please enter a username.");
+        this.data.$route.errors.push("Please enter a username.");
       }
     },
   },

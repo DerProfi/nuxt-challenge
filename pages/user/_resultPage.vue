@@ -11,15 +11,17 @@
       <div v-else>
         <p>There is no user called "{{ username }}"</p>
       </div>
-      <HdButton
-        modifier="primary"
-        :is-in-dark-background="false"
-        :disabled="false"
-        icon-src=""
-        @click="back"
-      >
-        New search
-      </HdButton>
+      <div class="button--center">
+        <HdButton
+          modifier="secondary"
+          :is-in-dark-background="false"
+          :disabled="false"
+          icon-src=""
+          @click="back"
+        >
+          New search
+        </HdButton>
+      </div>
     </section>
   </div>
 </template>
@@ -41,18 +43,20 @@ export default {
       required: true
     }
   },
-  asyncData({$axios, error}){
-    return $axios.get('https://api.github.com/users/derprofi')
-    .then(response => {
+  async asyncData({$axios, error, params}){
+    try{
+      const { data } = await $axios.get(
+        'https://api.github.com/users/' + params.resultPage
+      )
       return{
-        userData: response.data
+        userData: data
       }
-    }).catch(e => {
+    } catch (e) {
       error({
         statusCode: 503,
         message: 'Unable to fetch user data at this time. Please try again.'
       })
-    })
+    }
   },
   mounted() {
     this.search();
@@ -69,4 +73,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="userData.avatar_url">
-      <h1 data-testid="informationHeading">Information about {{ $route.params.id }}</h1>
+      <h1 data-testid="informationHeading">Information about {{ username }}</h1>
       <div class="container__content">
         <img :src="userData.avatar_url" alt="avatar" />
         <div class="container__text">
@@ -21,7 +21,6 @@
 
 <script>
 export default {
-  // eslint-disable-next-line vue/require-prop-types
   props: ["userData", "username"],
 };
 </script>
