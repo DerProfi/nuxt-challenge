@@ -2,7 +2,7 @@
   <div class="background box">
     <div class="container box">
       <h1>Github user fetching</h1>
-      <p data-testid="errorDisplay" v-if="errors.length">
+      <p v-if="errors.length" data-testid="errorDisplay">
         {{ errors.join(" ") }}
       </p>
       <input-form @submit="search"></input-form>
@@ -28,8 +28,7 @@ export default {
       this.username = payload;
       if (this.username) {
         this.$router.push({
-          name: "Results",
-          params: { username: this.username },
+          name: "user-resultPage",
         });
       } else {
         this.errors.push("Please enter a username.");

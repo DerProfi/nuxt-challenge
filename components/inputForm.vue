@@ -2,8 +2,8 @@
   <div>
     <form @submit.prevent="emitEvent">
       <HdInput
-        class="form__input"
         v-model="username"
+        class="form__input"
         :required="true"
         type="text"
         name="search"
@@ -14,8 +14,8 @@
         <HdButton
           type="submit"
           modifier="primary"
-          :isInDarkBackground="false"
-          iconSrc=""
+          :is-in-dark-background="false"
+          icon-src=""
           :disabled="false"
         >
           Search
