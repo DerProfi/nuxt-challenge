@@ -5,11 +5,12 @@
       <user-information
         v-if="userData.avatar_url"
         :user-data="userData"
-        :username="username"
+        :username="$route.params.resultPage"
+
       ></user-information>
       <!-- If the user doesnt exist  -->
       <div v-else>
-        <p>There is no user called "{{ username }}"</p>
+        <p> There is no user called {{$route.params.resultPage}}</p>
       </div>
       <div class="button--center">
         <HdButton
@@ -29,7 +30,9 @@
 <script>
 // import  api  from "../services/Fetch"
 import { HdButton } from "homeday-blocks";
+import { mapState} from "vuex";
 import userInformation from "@/components/userInformation.vue";
+
 
 export default {
   name: "ResultPage",
@@ -37,20 +40,9 @@ export default {
     userInformation,
     HdButton,
   },
-  props:{
-    username: {
-      type: String,
-      required: true
-    }
-  },
-  async asyncData({$axios, error, params}){
+  async fetch({ store, error, params }){
     try{
-      const { data } = await $axios.get(
-        'https://api.github.com/users/' + params.resultPage
-      )
-      return{
-        userData: data
-      }
+      await store.dispatch('userData/fetchUserData',params.resultPage)
     } catch (e) {
       error({
         statusCode: 503,
@@ -58,18 +50,17 @@ export default {
       })
     }
   },
-  mounted() {
-    this.search();
-  },
   methods: {
     back () {
       this.$router.push({
         name: "index",
       });
     },
-    search () {
-    },
-  }
+  },
+  // eslint-disable-next-line vue/order-in-components
+  computed: mapState({
+    userData: state => state.userData.userData
+  })
 };
 </script>
 

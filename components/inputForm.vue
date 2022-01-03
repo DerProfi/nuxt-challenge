@@ -10,7 +10,7 @@
         label="Username"
         placeholder="Please enter a username."
       />
-      <div class="form__button--center">
+      <div class="button--center">
         <HdButton
           type="submit"
           modifier="primary"
@@ -51,10 +51,5 @@ export default {
   color: black;
   width: 70%;
   margin: 0 auto;
-}
-.form__button--center{
-   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>

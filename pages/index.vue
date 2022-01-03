@@ -29,6 +29,7 @@ export default {
       if (this.username) {
         this.$router.push({
           name: "user-resultPage",
+          params: { resultPage: this.username }
         });
       } else {
         this.data.$route.errors.push("Please enter a username.");
