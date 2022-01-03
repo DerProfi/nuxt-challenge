@@ -6,7 +6,6 @@
         v-if="userData.avatar_url"
         :user-data="userData"
         :username="$route.params.resultPage"
-
       ></user-information>
       <!-- If the user doesnt exist  -->
       <div v-else>
@@ -28,7 +27,6 @@
 </template>
 
 <script>
-// import  api  from "../services/Fetch"
 import { HdButton } from "homeday-blocks";
 import { mapState} from "vuex";
 import userInformation from "@/components/userInformation.vue";
