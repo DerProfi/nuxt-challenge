@@ -45,4 +45,9 @@ export default {
   build: {
     transpile: ["homeday-blocks", "homeday-assets", "vue-flickity"]
   },
+
+  // Storybook
+  storybook: {
+    // Options
+  }
 }
