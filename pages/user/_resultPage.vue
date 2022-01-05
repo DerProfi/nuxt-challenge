@@ -9,7 +9,7 @@
       ></user-information>
       <!-- If the user doesnt exist  -->
       <div v-else>
-        <p> There is no user called {{$route.params.resultPage}}</p>
+        <p> There is no user called "{{$route.params.resultPage}}"</p>
       </div>
       <div class="button--center">
         <HdButton
@@ -43,24 +43,26 @@ export default {
       await store.dispatch('userData/fetchUserData',params.resultPage)
     } catch (e) {
       error({
-        statusCode: 503,
-        message: 'Unable to fetch user data at this time. Please try again.'
+        statusCode: e.response.status,
+        message: e.message
       })
     }
   },
+  computed: mapState({
+    userData: state => state.userData.userData
+  }),
   methods: {
     back () {
       this.$router.push({
         name: "index",
       });
     },
-  },
-  // eslint-disable-next-line vue/order-in-components
-  computed: mapState({
-    userData: state => state.userData.userData
-  })
+  }
 };
 </script>
 
 <style>
+p{
+  text-align: center;
+}
 </style>

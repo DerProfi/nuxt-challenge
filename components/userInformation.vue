@@ -21,8 +21,16 @@
 
 <script>
 export default {
-  // eslint-disable-next-line vue/require-prop-types
-  props: ["userData", "username"],
+  props:{
+    userData: {
+      type: Object,
+      required: true
+    },
+    username: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
 
