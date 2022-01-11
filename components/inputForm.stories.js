@@ -1,24 +1,18 @@
-import { InputForm } from '@/components/inputForm.stories';
+import { action } from '@storybook/addon-actions';
+import { InputForm } from '@/components/inputForm.vue';
 
 export default {
   title: 'Views/InputForm',
   components: InputForm,
-  argTypes: {
-    search: {
-      action: "search"
-    }
-  }
 }
 
-const Template = (args, {argTypes}) => ({
+export const Form = () => ({
   components: InputForm,
   template: `
-    <input-form 
+    <input-form
       @submit="search"
     >
     </input-form>
   `,
+  methods: {search: action('searched')}
 })
-
-export const Form = Template.bind({});
-Form.argTypes = {};
