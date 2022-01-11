@@ -1,0 +1,14 @@
+[
+  {
+    "name": "user-resultPage",
+    "path": "/user/:resultPage?",
+    "component": "/Users/leonnothegger/Desktop/One folder/Nuxt/Nuxt_challenge/pages/user/_resultPage.vue",
+    "chunkName": "pages/user/_resultPage"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/leonnothegger/Desktop/One folder/Nuxt/Nuxt_challenge/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
