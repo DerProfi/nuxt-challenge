@@ -1,25 +1,18 @@
-import { userInformation } from '@/components/userInformation.vue';
+import userInformation from '@/components/userInformation.vue';
 
 export default {
   title: 'Views/userInformation',
-  components: userInformation,
+  component: userInformation,
 }
 
 
-const Template = (args, {argTypes}) => ({
+export const Information = (args, {argTypes}) => ({
   components: { userInformation },
   props: Object.keys(argTypes),
-  template: `
-     <user-information
-      :user-data="userData"
-      :username="username"
-     >
-     </user-information>
-   `,
+  template: `<user-information v-bind="$props" />`,
 })
 
-export const Information = Template.bind({});
-  Information.args = {
+Information.args = {
     userData: {
       "avatar_url": "https://avatars.githubusercontent.com/u/43568019?v=4",
       "name": "Leon Nothegger",
@@ -28,4 +21,4 @@ export const Information = Template.bind({});
       "bio": "Hi, I'm Leon, junior frontend developer. 📚 ",
     },
     username: 'Der Profi'
-}
+  }
