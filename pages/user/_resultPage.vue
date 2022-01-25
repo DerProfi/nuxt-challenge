@@ -62,7 +62,5 @@ export default {
 </script>
 
 <style>
-p{
-  text-align: center;
-}
+
 </style>
