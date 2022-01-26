@@ -17,7 +17,7 @@
           :is-in-dark-background="false"
           :disabled="false"
           icon-src=""
-          @click="back"
+          @click="back(); reset()"
         >
           New search
         </HdButton>
@@ -57,6 +57,9 @@ export default {
         name: "index",
       });
     },
+    reset () {
+      this.$store.dispatch('userData/resetUserData')
+    }
   }
 };
 </script>
