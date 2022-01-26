@@ -3,6 +3,12 @@
     <div class="container box">
       <h1>Github user fetching</h1>
       <input-form @submit="search"></input-form>
+      <hr>
+      <h2>PA squad MVPs</h2>
+      <a href="/user/leandro/"> <p>Leandro</p></a>
+      <a href="/user/Vini"> <p>Vini</p></a>
+      <a href="/user/Daniele"> <p>Daniele</p></a>
+      <a href="/user/Ali"> <p>Ali</p></a>
     </div>
   </div>
 </template>
@@ -24,3 +30,12 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+hr{
+  margin-top: 2rem;
+}
+h2, p{
+  text-align: center;
+}
+
+</style>
