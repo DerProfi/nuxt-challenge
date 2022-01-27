@@ -1,4 +1,4 @@
-import api from '@/services/githubService.js'
+import api from '@/services/githubService.ts'
 
 export const state = () => ({
   userData: {},
