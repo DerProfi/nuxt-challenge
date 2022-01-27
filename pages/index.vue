@@ -4,11 +4,11 @@
       <h1>Github user fetching</h1>
       <input-form @submit="search"></input-form>
       <hr>
-      <h2>PA squad MVPs</h2>
-      <a href="/user/leandro/"> <p>Leandro</p></a>
-      <a href="/user/Vini"> <p>Vini</p></a>
-      <a href="/user/Daniele"> <p>Daniele</p></a>
-      <a href="/user/Ali"> <p>Ali</p></a>
+      <h2>PA squad MVPs (no particular order) </h2>
+      <nuxt-link to="/user/viniciuskneves"><p>Vini</p></nuxt-link>
+      <nuxt-link to="/user/alieslamifard"><p>Ali</p></nuxt-link>
+      <nuxt-link to="/user/leandroinacio"><p>Leandro</p></nuxt-link>
+      <nuxt-link to="/user/drapisarda"><p>Daniele</p></nuxt-link>
     </div>
   </div>
 </template>
@@ -34,7 +34,11 @@ export default {
 hr{
   margin-top: 2rem;
 }
-h2, p{
+h2{
+  text-align: center;
+}
+p{
+  display: block;
   text-align: center;
 }
 

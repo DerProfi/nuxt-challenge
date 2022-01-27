@@ -12,15 +12,17 @@
         <p> There is no user called "{{$route.params.resultPage}}"</p>
       </div>
       <div class="button--center">
-        <HdButton
-          modifier="secondary"
-          :is-in-dark-background="false"
-          :disabled="false"
-          icon-src=""
-          @click="back(); reset()"
-        >
-          New search
-        </HdButton>
+        <nuxt-link to="/">
+          <HdButton
+            modifier="secondary"
+            :is-in-dark-background="false"
+            :disabled="false"
+            icon-src=""
+            @click="back(); reset()"
+          >
+            New search
+          </HdButton>
+        </nuxt-link>
       </div>
     </section>
   </div>
