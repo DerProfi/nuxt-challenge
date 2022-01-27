@@ -19,19 +19,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  props:{
-    userData: {
-      type: Object,
-      required: true
-    },
-    username: {
-      type: String,
-      required: true
-    }
-  }
-};
-</script>
+<script lang="ts">
+import Vue from "vue";
 
-<style></style>
+export default Vue.extend({
+  name: "UserInformation",
+  props: {
+    userData: { type: Object, required: true },
+    username: { type: String, required: true}
+  }
+})
+</script>
