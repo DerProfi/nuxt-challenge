@@ -25,10 +25,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { HdButton, HdInput } from "homeday-blocks";
-import "homeday-blocks/src/styles/main.scss";
-export default {
+export default Vue.extend({
   components: {
     HdButton,
     HdInput,
@@ -39,11 +39,11 @@ export default {
     };
   },
   methods: {
-    emitEvent() {
+    emitEvent(): void {
       this.$emit("submit", this.username);
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
