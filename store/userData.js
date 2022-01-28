@@ -12,6 +12,9 @@ export const mutations = {
   SET_USERDATA_ERROR(state, error){
     state.error = error
   },
+  SET_RESET(state){
+    state.userData = {}
+  }
 }
 
 export const actions = {
@@ -22,6 +25,7 @@ export const actions = {
       commit('SET_USERDATA_ERROR', error);
     })
   },
-
+  resetUserData({commit}) {
+    commit('SET_RESET')
+  }
 }
-
