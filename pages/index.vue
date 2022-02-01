@@ -7,20 +7,21 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import inputForm from "../components/inputForm.vue";
-export default {
+export default Vue.extend({
   name: "IndexForm",
   components: {
     inputForm,
   },
   methods: {
-    search(payload) {
+    search(payload: string) {
         this.$router.push({
           name: "user-resultPage",
-          params: { resultPage: payload }
+          params: { resultPage: payload },
         })
     }
   },
-};
+});
 </script>

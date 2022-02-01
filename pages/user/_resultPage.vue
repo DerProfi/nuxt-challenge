@@ -26,13 +26,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { HdButton } from "homeday-blocks";
 import { mapState} from "vuex";
 import userInformation from "@/components/userInformation.vue";
 
 
-export default {
+export default Vue.extend({
   name: "ResultPage",
   components: {
     userInformation,
@@ -41,27 +42,28 @@ export default {
   async fetch({ store, error, params }){
     try{
       await store.dispatch('userData/fetchUserData',params.resultPage)
-    } catch (e) {
+    } catch (e: any) {
       error({
         statusCode: e.response.status,
         message: e.message
       })
     }
   },
-  computed: mapState({
-    userData: state => state.userData.userData
-  }),
+  computed: 
+    mapState({
+      userData: (state: any) => state.userData.userData
+    }),
   methods: {
-    back () {
+    back (): void {
       this.$router.push({
         name: "index",
       });
     },
-    reset () {
+    reset (): void {
       this.$store.dispatch('userData/resetUserData')
     }
   }
-};
+});
 </script>
 
 <style>
