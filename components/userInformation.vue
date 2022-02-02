@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="userData.avatar_url">
+    <div v-if="userData.avatar_url" data-testid="informationBlock">
       <h1 data-testid="informationHeading">Information about {{ username }}</h1>
       <div class="container__content">
         <img :src="userData.avatar_url" alt="avatar" />
