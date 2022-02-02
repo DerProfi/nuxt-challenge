@@ -48,5 +48,10 @@ describe('userInformation.vue', () => {
     })
     const heading = screen.getByTestId('informationHeading')
     expect(heading).toBeTruthy()
-  })
+  });
+  // it('doesnt render without data', () => {
+  //   render(userInformation)
+  //   const div = screen.getByTestId('informationBlock')
+  //   expect(div).not.toBeInTheDocument();
+  // })
 })
