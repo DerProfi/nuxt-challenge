@@ -8,7 +8,7 @@ describe('index.vue', () => {
     render(index)
     // auto fill the input for or
     // fire the event with payload
-  
+    
     // expect router to have length(1)
 
   });
