@@ -1,4 +1,5 @@
 import {render, screen} from '@testing-library/vue'
+import '@testing-library/jest-dom'
 import userInformation from '@/components/userInformation.vue'
 
 
@@ -49,9 +50,14 @@ describe('userInformation.vue', () => {
     const heading = screen.getByTestId('informationHeading')
     expect(heading).toBeTruthy()
   });
-  // it('doesnt render without data', () => {
-  //   render(userInformation)
-  //   const div = screen.getByTestId('informationBlock')
-  //   expect(div).not.toBeInTheDocument();
-  // })
+  it('doesnt render without data', () => {
+    render(userInformation, {
+      props: {
+        username: "derprofi",
+        userData: {
+        }
+      }
+    })
+    expect(screen.queryByText('Information about derprofi')).not.toBeInTheDocument();
+  })
 })

@@ -2,15 +2,21 @@ import {render, screen, fireEvent} from '@testing-library/vue'
 import '@testing-library/jest-dom'
 import index from '@/pages/index.vue'
 
-
-
 describe('index.vue', () => {
-  it('pushs route on submit',  () => {
-    render(index)
-    // auto fill the input for or
-    // fire the event with payload
+  it('pushs route on submit', async () => {
+    const $router = [];
+    render(index , {
+      mocks: {
+        $router
+      }
+    });
     const button = screen.getByText("Search")
-    // expect router to have length(1)
-    expect(button).toBeInTheDocument()
+    await fireEvent.update(
+      screen.getByLabelText('Username'),
+      'derprofi'
+    )
+    fireEvent.click(button)
+    const route =  [{"name": "user-resultPage", "params": {"resultPage": "derprofi"}}]
+    expect($router).toEqual(route)
   });
 })
