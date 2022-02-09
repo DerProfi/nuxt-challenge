@@ -30,8 +30,9 @@
 
 <script>
 import { HdButton } from "homeday-blocks";
-import { mapState} from "vuex";
 import userInformation from "@/components/userInformation.vue";
+import api from '@/services/githubService.js'
+
 
 
 export default {
@@ -40,19 +41,18 @@ export default {
     userInformation,
     HdButton,
   },
-  async fetch({ store, error, params }){
+  async asyncData({ params }){
     try{
-      await store.dispatch('userData/fetchUserData',params.resultPage)
-    } catch (e) {
-      error({
-        statusCode: e.response.status,
-        message: e.message
+      const response = await api.api(params.resultPage);
+      const userData = response.data
+      return {userData}
+    } catch (err) {
+      err({
+        statusCode: err.response.status,
+        message: err.message
       })
     }
   },
-  computed: mapState({
-    userData: state => state.userData.userData
-  }),
   methods: {
     back () {
       this.$router.push({
@@ -60,7 +60,7 @@ export default {
       });
     },
     reset () {
-      this.$store.dispatch('userData/resetUserData')
+      this.userData = {}
     }
   }
 };
