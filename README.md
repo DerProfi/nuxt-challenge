@@ -15,6 +15,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# start Storybook in development environment:
+$ npx nuxt storybook
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
