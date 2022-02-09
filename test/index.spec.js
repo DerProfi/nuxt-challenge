@@ -8,7 +8,10 @@ describe('index.vue', () => {
     render(index , {
       mocks: {
         $router
-      }
+      },
+      stubs: {
+        'nuxt-link': true,
+       }
     });
     const button = screen.getByText("Search")
     await fireEvent.update(
