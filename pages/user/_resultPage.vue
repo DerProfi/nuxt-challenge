@@ -41,16 +41,11 @@ export default {
     userInformation,
     HdButton,
   },
-  data(){
-    return {
-      userData: {},
-    }
-  },
-  async fetch({ params }){
+  async asyncData({ params }){
     try{
       const response = await api.api(params.resultPage);
-      console.log(response.data)
-      response.data = this.userData
+      const userData = response.data
+      return {userData}
     } catch (err) {
       err({
         statusCode: err.response.status,
