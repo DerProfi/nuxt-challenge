@@ -20,13 +20,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue, { PropType } from "vue";
+import {IUserInformation} from '../types/user.interface';
+
 
 export default Vue.extend({
   name: "UserInformation",
   props: {
-    userData: { type: Object, required: true },
-    username: { type: String, required: true}
+    userData: { type: Object as PropType<IUserInformation['userData']>, required: true },
+    username: { type: String as PropType<IUserInformation['username']>, required: true}
   }
 })
 </script>
